@@ -12,19 +12,19 @@
       "answer": "Loki"
     },
     {
-      "id": 9,
+      "id": 2,
       "question": "From what game is this image?",
       "image":"/images/QuizImage1.jpg",
       "options": [
-        "He is betrayed by a close ally.", 
-        "He infiltrates Deathshead’s fortress successfully.", 
-        "He goes into a 14-year coma.", 
-        "He discovers an ancient artifact."
+        "Starfield", 
+        "Cyberpunk 2077", 
+        "Titanfall 2", 
+        "No Man's Sky"
       ],
-      "answer": "He goes into a 14-year coma."
+      "answer": "Titanfall 2"
     },
     {
-      "id": 2,
+      "id": 3,
       "question": "What is the name of the herbalist who helps Geralt find Ciri early in the game?",
       "options": [
         "Keira Metz", 
@@ -35,7 +35,7 @@
       "answer": "Tomira"
     },
     {
-      "id": 3,
+      "id": 4,
       "question": "Which magical creatures can the player tame in Hogwarts Legacy?",
       "options": [
         "Thestral", 
@@ -46,7 +46,7 @@
       "answer": "Both A and B"
     },
     {
-      "id": 4,
+      "id": 5,
       "question": "What is the special ability of the protagonist’s magical staff in Black Myth: Wukong?",
       "options": [
         "It can control the weather.", 
@@ -57,7 +57,7 @@
       "answer": "It can change size at will."
     },
     {
-      "id": 5,
+      "id": 6,
       "question": "What is Connor's model number?",
       "options": [
         "RK100", 
@@ -68,7 +68,7 @@
       "answer": "RK800"
     },
     {
-      "id": 6,
+      "id": 7,
       "question": "What is unique about Malenia, Blade of Miquella?",
       "options": [
         "She wields the Rune of Death.", 
@@ -79,7 +79,7 @@
       "answer": "She is an Empyrean."
     },
     {
-      "id": 7,
+      "id": 8,
       "question": "What cult is responsible for the events in Resident Evil 4?",
       "options": [
         "Los Iluminados", 
@@ -90,7 +90,7 @@
       "answer": "Los Iluminados"
     },
     {
-      "id": 8,
+      "id": 9,
       "question": "What is the name of the Doom Slayer's AI companion?",
       "options": [
         "Hayden AI", 
@@ -101,7 +101,7 @@
       "answer": "Vega"
     },
     {
-      "id": 9,
+      "id": 10,
       "question": "What happens to B.J. Blazkowicz at the start of Wolfenstein: The New Order?",
       "options": [
         "He is betrayed by a close ally.", 
@@ -112,7 +112,7 @@
       "answer": "He goes into a 14-year coma."
     },
     {
-      "id": 10,
+      "id": 11,
       "question": "Which of these games features a boss fight with a dragon?",
       "options": [
         "Elden Ring", 
