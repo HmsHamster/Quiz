@@ -1,0 +1,126 @@
+{
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the real identity of Atreus, revealed later in the game?",
+      "options": [
+        "Loki", 
+        "Thor", 
+        "Baldur", 
+        "Fenrir"
+      ],
+      "answer": "Loki"
+    },
+    {
+      "id": 9,
+      "question": "From what game is this image?",
+      "image":"/images/QuizImage1.jpg",
+      "options": [
+        "He is betrayed by a close ally.", 
+        "He infiltrates Deathshead’s fortress successfully.", 
+        "He goes into a 14-year coma.", 
+        "He discovers an ancient artifact."
+      ],
+      "answer": "He goes into a 14-year coma."
+    },
+    {
+      "id": 2,
+      "question": "What is the name of the herbalist who helps Geralt find Ciri early in the game?",
+      "options": [
+        "Keira Metz", 
+        "Dandelion", 
+        "Vesemir",
+        "Tomira"
+      ],
+      "answer": "Tomira"
+    },
+    {
+      "id": 3,
+      "question": "Which magical creatures can the player tame in Hogwarts Legacy?",
+      "options": [
+        "Thestral", 
+        "Hippogriff", 
+        "Both A and B", 
+        "None of the above"
+      ],
+      "answer": "Both A and B"
+    },
+    {
+      "id": 4,
+      "question": "What is the special ability of the protagonist’s magical staff in Black Myth: Wukong?",
+      "options": [
+        "It can control the weather.", 
+        "It can summon mythical beasts.", 
+        "It can absorb enemy souls.",
+        "It can change size at will."
+      ],
+      "answer": "It can change size at will."
+    },
+    {
+      "id": 5,
+      "question": "What is Connor's model number?",
+      "options": [
+        "RK100", 
+        "RK800", 
+        "AX700", 
+        "PL600"
+      ],
+      "answer": "RK800"
+    },
+    {
+      "id": 6,
+      "question": "What is unique about Malenia, Blade of Miquella?",
+      "options": [
+        "She wields the Rune of Death.", 
+        "She is an Empyrean.", 
+        "She is immune to Scarlet Rot.", 
+        "She controls the Elden Beast."
+      ],
+      "answer": "She is an Empyrean."
+    },
+    {
+      "id": 7,
+      "question": "What cult is responsible for the events in Resident Evil 4?",
+      "options": [
+        "Los Iluminados", 
+        "The Hive", 
+        "The Umbrella Corporation", 
+        "The Plaga Syndicate"
+      ],
+      "answer": "Los Iluminados"
+    },
+    {
+      "id": 8,
+      "question": "What is the name of the Doom Slayer's AI companion?",
+      "options": [
+        "Hayden AI", 
+        "Argent Core",
+        "Vega",  
+        "Phoenix Protocol"
+      ],
+      "answer": "Vega"
+    },
+    {
+      "id": 9,
+      "question": "What happens to B.J. Blazkowicz at the start of Wolfenstein: The New Order?",
+      "options": [
+        "He is betrayed by a close ally.", 
+        "He infiltrates Deathshead’s fortress successfully.", 
+        "He goes into a 14-year coma.", 
+        "He discovers an ancient artifact."
+      ],
+      "answer": "He goes into a 14-year coma."
+    },
+    {
+      "id": 10,
+      "question": "Which of these games features a boss fight with a dragon?",
+      "options": [
+        "Elden Ring", 
+        "Doom (2016)", 
+        "Resident Evil 4 Remake", 
+        "Detroit: Become Human"
+      ],
+      "answer": "Elden Ring"
+    }
+  ]
+}
