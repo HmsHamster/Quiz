@@ -6,22 +6,22 @@ const QuizApp = () => {
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [isQuizStarted, setIsQuizStarted] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(10); 
-  const [userAnswers, setUserAnswers] = useState([]); 
-  const [quizData, setQuizData] = useState(null); 
-  const [loading, setLoading] = useState(true); 
-  const [clickedAnswer, setClickedAnswer] = useState(null); 
+  const [timeLeft, setTimeLeft] = useState(10);
+  const [userAnswers, setUserAnswers] = useState([]);
+  const [quizData, setQuizData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [clickedAnswer, setClickedAnswer] = useState(null);
 
   useEffect(() => {
     const fetchQuizData = async () => {
       try {
         const response = await fetch('/questions.json');
         const data = await response.json();
-        setQuizData(data.quiz); 
-        setLoading(false); 
+        setQuizData(data.quiz);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching quiz data:", error);
-        setLoading(false); 
+        setLoading(false);
       }
     };
 
@@ -34,86 +34,100 @@ const QuizApp = () => {
         setTimeLeft((prevTime) => prevTime - 1);
       }, 1000);
 
-      return () => clearInterval(timer); 
+      return () => clearInterval(timer);
     } else if (timeLeft === 0 && isQuizStarted && !showScore) {
-      handleTimeout(); 
+      handleTimeout();
     }
   }, [timeLeft, isQuizStarted, showScore]);
 
   const handleTimeout = () => {
     const currentQuestion = quizData[currentQuestionIndex];
-    const feedback = {
-      question: currentQuestion.question,
-      userAnswer: "None",
-      correctAnswer: currentQuestion.answer,
-      isCorrect: false,
-    };
 
-    setUserAnswers([...userAnswers, feedback]); 
+    // Prevent duplicate entries for the same question
+    if (!userAnswers.some(answer => answer.question === currentQuestion.question)) {
+      const feedback = {
+        question: currentQuestion.question,
+        userAnswer: "None",
+        correctAnswer: currentQuestion.answer,
+        isCorrect: false,
+      };
+
+      setUserAnswers((prevAnswers) => [...prevAnswers, feedback]);
+    }
+
     const nextQuestion = currentQuestionIndex + 1;
 
     if (nextQuestion < quizData.length) {
       setTimeout(() => {
         setCurrentQuestionIndex(nextQuestion);
-        setTimeLeft(10); 
-        setClickedAnswer(null); 
-      }, 500); 
+        setTimeLeft(10);
+        setClickedAnswer(null);
+      }, 500);
     } else {
-      setShowScore(true); 
+      setShowScore(true);
     }
   };
 
   const handleAnswerOptionClick = (isCorrect, option) => {
-    setClickedAnswer({ isCorrect, option }); 
-    const feedback = {
-      question: quizData[currentQuestionIndex].question,
-      userAnswer: option,
-      correctAnswer: quizData[currentQuestionIndex].answer,
-      isCorrect: isCorrect,
-    };
+    if (clickedAnswer) return; // Prevent multiple clicks for the same question
 
-    setUserAnswers([...userAnswers, feedback]); 
-    if (isCorrect) {
-      setScore(score + 1);
+    setClickedAnswer({ isCorrect, option });
+
+    const currentQuestion = quizData[currentQuestionIndex];
+
+    // Prevent duplicate entries for the same question
+    if (!userAnswers.some(answer => answer.question === currentQuestion.question)) {
+      const feedback = {
+        question: currentQuestion.question,
+        userAnswer: option,
+        correctAnswer: currentQuestion.answer,
+        isCorrect: isCorrect,
+      };
+
+      setUserAnswers((prevAnswers) => [...prevAnswers, feedback]);
+      if (isCorrect) {
+        setScore(score + 1);
+      }
     }
 
     const nextQuestion = currentQuestionIndex + 1;
+
     if (nextQuestion < quizData.length) {
       setTimeout(() => {
         setCurrentQuestionIndex(nextQuestion);
-        setTimeLeft(10); 
-        setClickedAnswer(null); 
-      }, 500); 
+        setTimeLeft(10);
+        setClickedAnswer(null);
+      }, 500);
     } else {
       setShowScore(true);
     }
   };
 
   const resetQuiz = () => {
-    setIsQuizStarted(false); 
-    setScore(0); 
-    setUserAnswers([]); 
-    setCurrentQuestionIndex(0); 
-    setShowScore(false); 
-    setClickedAnswer(null); 
-    setTimeLeft(10); 
+    setIsQuizStarted(false);
+    setScore(0);
+    setUserAnswers([]);
+    setCurrentQuestionIndex(0);
+    setShowScore(false);
+    setClickedAnswer(null);
+    setTimeLeft(10);
   };
 
   const handleStartQuiz = () => {
-    setIsQuizStarted(true); 
-    setTimeLeft(10); 
-    setScore(0); 
-    setUserAnswers([]); 
-    setCurrentQuestionIndex(0); 
-    setShowScore(false); 
-    setClickedAnswer(null); 
+    setIsQuizStarted(true);
+    setTimeLeft(10);
+    setScore(0);
+    setUserAnswers([]);
+    setCurrentQuestionIndex(0);
+    setShowScore(false);
+    setClickedAnswer(null);
   };
 
   const getResponseMessage = () => {
     if (score < 4) return "Play more games, noob😞";
     if (score >= 4 && score <= 7) return "You are a gamer!🎮";
     if (score >= 8) return "Touch some grass🌿";
-    return ""; 
+    return "";
   };
 
   if (loading) {
@@ -163,7 +177,6 @@ const QuizApp = () => {
             <div className="question-text">
               {quizData[currentQuestionIndex].question}
             </div>
-            {}
             {quizData[currentQuestionIndex].image && (
               <div className="question-image">
                 <img
