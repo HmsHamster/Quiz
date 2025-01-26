@@ -1,7 +1,6 @@
-/* Root container */
 #root {
   width: 100%;
-  max-width: 1100px;  /* Restrict the width to prevent overflow on larger screens */
+  max-width: 1100px;  
   margin: 0 auto;
   padding: 1rem;
   display: flex;
@@ -13,7 +12,6 @@
   overflow: hidden;
 }
 
-/* App container */
 .app {
   font-family: Arial, sans-serif;
   text-align: center;
@@ -21,7 +19,7 @@
   border-radius: 15px;
   padding: 20px;
   width: 100%;
-  max-width: 900px;  /* Reduced the max width for more compactness */
+  max-width: 900px;  
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -29,12 +27,11 @@
   align-items: center;
 }
 
-/* Buttons */
 button {
   background-color: Black;
   color: white;
   padding: 18px 35px;
-  font-size: 22px;  /* Slightly smaller font size */
+  font-size: 22px;  
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -44,36 +41,34 @@ button:hover {
   background-color: darkblue;
 }
 
-/* Headings */
 h1, h2, h3 {
-  margin: 20px 0;  /* Reduced margin */
+  margin: 20px 0;  
 }
 
 .home-page h1 {
-  font-size: 32px;  /* Reduced font size */
+  font-size: 32px;  
 }
 
 .home-page button {
-  font-size: 24px;  /* Reduced button font size */
+  font-size: 24px;  
 }
 
-/* Quiz Question section */
 .question-section {
-  margin: 20px 0;  /* Reduced margin */
+  margin: 20px 0;  
 }
 
 .question-count {
-  font-size: 20px;  /* Reduced font size */
+  font-size: 20px;  
 }
 
 .question-text {
-  font-size: 24px;  /* Reduced font size */
+  font-size: 24px;  
   font-weight: bold;
   margin: 20px 0;
 }
 
 .question-title {
-  font-size: 1.25rem;  /* Smaller title font size */
+  font-size: 1.25rem;  
   margin-bottom: 0.8rem;
 }
 
@@ -85,21 +80,21 @@ h1, h2, h3 {
 }
 
 .answer-section button {
-  width: 300px;  /* Increased button width */
-  margin: 15px 0;  /* Keep the margin to separate buttons */
-  padding: 18px;  /* Increased padding for bigger buttons */
-  font-size: 24px;  /* Larger font size for better readability */
+  width: 300px;  
+  margin: 15px 0;  
+  padding: 18px;  
+  font-size: 24px;  
 }
 
 .score-section {
-  margin-top: 20px;  /* Reduced margin */
+  margin-top: 20px;  
 }
 
 .answers-summary {
   margin-top: 20px;
   text-align: left;
   display: inline-block;
-  max-width: 700px;  /* Reduced width */
+  max-width: 700px;  
 }
 
 .answers-summary ul {
@@ -108,7 +103,7 @@ h1, h2, h3 {
 }
 
 .answers-summary li {
-  margin: 10px 0;  /* Reduced margin */
+  margin: 10px 0;  
 }
 
 .correct {
@@ -121,15 +116,14 @@ h1, h2, h3 {
 
 .feedback {
   font-style: italic;
-  font-size: 16px;  /* Slightly smaller font size */
+  font-size: 16px;  
 }
 
 .timer {
-  font-size: 20px;  /* Slightly smaller font size */
+  font-size: 20px;  
   margin-top: 20px;
 }
 
-/* Background */
 body {
   background-image: url('../images/Leon.jpeg');
   background-size: cover;
@@ -140,7 +134,6 @@ body {
   padding: 0;
 }
 
-/* Quiz Image Styling */
 .question-image {
   margin: 20px 0;
   text-align: center;
@@ -148,7 +141,7 @@ body {
 
 .quiz-image {
   width: 100%;
-  max-width: 500px;  /* Smaller max width */
+  max-width: 500px;  
   height: auto;
   border-radius: 10px;
   border: 3px solid #ddd;
@@ -165,29 +158,26 @@ body {
 }
 
 .response-message {
-  font-size: 42px;  /* Reduced font size */
+  font-size: 42px;  
   font-weight: bold;
   color: white;
   margin-top: 20px;
 }
 
-/* Media Queries */
-
-/* Large screens (27-inch and higher screens) */
 @media (min-width: 1600px) {
   .app {
     padding: 15px;
-    max-width: 1000px;  /* Prevents too wide layout */
+    max-width: 1000px;  
   }
 
   .question-text {
-    font-size: 26px;  /* Reduced font size */
+    font-size: 26px;  
   }
 
   .answer-section button {
     width: 300px;
     padding: 18px;
-    font-size: 24px;  /* Larger font size */
+    font-size: 24px;  
   }
 
   .quiz-image {
@@ -199,7 +189,6 @@ body {
   }
 }
 
-/* Large laptops and desktop screens (15-inch 1920x1080p, 1600px width) */
 @media (min-width: 1200px) and (max-width: 1600px) {
   .app {
     max-width: 900px;
@@ -207,13 +196,13 @@ body {
   }
 
   .question-text {
-    font-size: 24px;  /* Slightly smaller font size */
+    font-size: 24px;  
   }
 
   .answer-section button {
     width: 300px;
     padding: 18px;
-    font-size: 24px;  /* Larger font size */
+    font-size: 24px;  
   }
 
   .quiz-image {
@@ -225,10 +214,9 @@ body {
   }
 }
 
-/* Medium laptops and tablets (1024px and below) */
 @media (max-width: 1024px) {
   .app {
-    max-width: 850px;  /* Prevents overflow */
+    max-width: 850px;  
     padding: 15px;
   }
 
@@ -249,7 +237,7 @@ body {
   .answer-section button {
     width: 300px;
     padding: 18px;
-    font-size: 22px;  /* Larger font size */
+    font-size: 22px;  
   }
 
   .quiz-image {
@@ -262,7 +250,6 @@ body {
   }
 }
 
-/* Small tablets and large mobile screens (768px and below) */
 @media (max-width: 768px) {
   .home-page h1 {
     font-size: 20px;
@@ -279,9 +266,9 @@ body {
   }
 
   .answer-section button {
-    width: 250px;  /* Slightly reduced width for tablets */
+    width: 250px;  
     padding: 15px;
-    font-size: 18px;  /* Larger font size */
+    font-size: 18px;  
   }
 
   .quiz-image {
@@ -294,7 +281,6 @@ body {
   }
 }
 
-/* Mobile devices (600px and below) */
 @media (max-width: 600px) {
   .home-page h1 {
     font-size: 18px;
@@ -310,7 +296,7 @@ body {
   }
 
   .answer-section button {
-    width: 230px;  /* Slightly larger width for mobile */
+    width: 230px;  
     padding: 16px;
     font-size: 18px;
   }
@@ -324,7 +310,6 @@ body {
   }
 }
 
-/* Very small mobile devices (375px and below) */
 @media (max-width: 375px) {
   .home-page h1 {
     font-size: 16px;
@@ -340,7 +325,7 @@ body {
   }
 
   .answer-section button {
-    width: 210px;  /* Slightly larger width for better touch on small screens */
+    width: 210px;  
     padding: 12px;
     font-size: 16px;
   }

@@ -124,7 +124,7 @@ const QuizApp = () => {
     <div className="app">
       {!isQuizStarted ? (
         <div className="home-page">
-          <h1>Are you a true gamer?</h1>
+          <h1>Are you a true gamer?🔎</h1>
           <button onClick={handleStartQuiz}>Start Quiz</button>
         </div>
       ) : showScore ? (
