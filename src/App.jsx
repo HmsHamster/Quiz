@@ -6,22 +6,32 @@ const QuizApp = () => {
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [isQuizStarted, setIsQuizStarted] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(10); 
-  const [userAnswers, setUserAnswers] = useState([]); 
-  const [quizData, setQuizData] = useState(null); 
-  const [loading, setLoading] = useState(true); 
-  const [clickedAnswer, setClickedAnswer] = useState(null); 
+  const [timeLeft, setTimeLeft] = useState(10);
+  const [userAnswers, setUserAnswers] = useState([]);
+  const [quizData, setQuizData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [clickedAnswer, setClickedAnswer] = useState(null);
+  const [shuffledOptions, setShuffledOptions] = useState([]);
+
+  const shuffleArray = (array) => {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  };
 
   useEffect(() => {
     const fetchQuizData = async () => {
       try {
         const response = await fetch('/questions.json');
         const data = await response.json();
-        setQuizData(data.quiz); 
-        setLoading(false); 
+        setQuizData(data.quiz);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching quiz data:", error);
-        setLoading(false); 
+        setLoading(false);
       }
     };
 
@@ -29,14 +39,21 @@ const QuizApp = () => {
   }, []);
 
   useEffect(() => {
+    if (quizData && quizData[currentQuestionIndex]) {
+      const shuffled = shuffleArray(quizData[currentQuestionIndex].options);
+      setShuffledOptions(shuffled);
+    }
+  }, [quizData, currentQuestionIndex]);
+
+  useEffect(() => {
     if (timeLeft > 0 && isQuizStarted && !showScore) {
       const timer = setInterval(() => {
         setTimeLeft((prevTime) => prevTime - 1);
       }, 1000);
 
-      return () => clearInterval(timer); 
+      return () => clearInterval(timer);
     } else if (timeLeft === 0 && isQuizStarted && !showScore) {
-      handleTimeout(); 
+      handleTimeout();
     }
   }, [timeLeft, isQuizStarted, showScore]);
 
@@ -49,22 +66,25 @@ const QuizApp = () => {
       isCorrect: false,
     };
 
-    setUserAnswers([...userAnswers, feedback]); 
+    setUserAnswers([...userAnswers, feedback]);
     const nextQuestion = currentQuestionIndex + 1;
 
     if (nextQuestion < quizData.length) {
       setTimeout(() => {
         setCurrentQuestionIndex(nextQuestion);
-        setTimeLeft(10); 
-        setClickedAnswer(null); 
-      }, 500); 
+        setTimeLeft(10);
+        setClickedAnswer(null);
+      }, 500);
     } else {
-      setShowScore(true); 
+      setShowScore(true);
     }
   };
 
   const handleAnswerOptionClick = (isCorrect, option) => {
-    setClickedAnswer({ isCorrect, option }); 
+    if (clickedAnswer) return;
+
+    setClickedAnswer({ isCorrect, option });
+    
     const feedback = {
       question: quizData[currentQuestionIndex].question,
       userAnswer: option,
@@ -72,48 +92,49 @@ const QuizApp = () => {
       isCorrect: isCorrect,
     };
 
-    setUserAnswers([...userAnswers, feedback]); 
+    setUserAnswers((prevAnswers) => [...prevAnswers, feedback]);
+
     if (isCorrect) {
-      setScore(score + 1);
+      setScore((prevScore) => prevScore + 1);
     }
 
     const nextQuestion = currentQuestionIndex + 1;
     if (nextQuestion < quizData.length) {
       setTimeout(() => {
         setCurrentQuestionIndex(nextQuestion);
-        setTimeLeft(10); 
-        setClickedAnswer(null); 
-      }, 500); 
+        setTimeLeft(10);
+        setClickedAnswer(null);
+      }, 500);
     } else {
       setShowScore(true);
     }
   };
 
   const resetQuiz = () => {
-    setIsQuizStarted(false); 
-    setScore(0); 
-    setUserAnswers([]); 
-    setCurrentQuestionIndex(0); 
-    setShowScore(false); 
-    setClickedAnswer(null); 
-    setTimeLeft(10); 
+    setIsQuizStarted(false);
+    setScore(0);
+    setUserAnswers([]);
+    setCurrentQuestionIndex(0);
+    setShowScore(false);
+    setClickedAnswer(null);
+    setTimeLeft(10);
   };
 
   const handleStartQuiz = () => {
-    setIsQuizStarted(true); 
-    setTimeLeft(10); 
-    setScore(0); 
-    setUserAnswers([]); 
-    setCurrentQuestionIndex(0); 
-    setShowScore(false); 
-    setClickedAnswer(null); 
+    setIsQuizStarted(true);
+    setTimeLeft(10);
+    setScore(0);
+    setUserAnswers([]);
+    setCurrentQuestionIndex(0);
+    setShowScore(false);
+    setClickedAnswer(null);
   };
 
   const getResponseMessage = () => {
-    if (score < 4) return "Play more games, noob😞";
-    if (score >= 4 && score <= 7) return "You are a gamer!🎮";
-    if (score >= 8) return "Touch some grass🌿";
-    return ""; 
+    if (score < 6) return "Play more games, noob😞";
+    if (score >= 6 && score <= 11) return "You are a gamer!🎮";
+    if (score >= 12) return "Touch some grass🌿";
+    return "";
   };
 
   if (loading) {
@@ -163,7 +184,6 @@ const QuizApp = () => {
             <div className="question-text">
               {quizData[currentQuestionIndex].question}
             </div>
-            {}
             {quizData[currentQuestionIndex].image && (
               <div className="question-image">
                 <img
@@ -175,7 +195,7 @@ const QuizApp = () => {
             )}
           </div>
           <div className="answer-section">
-            {quizData[currentQuestionIndex].options.map((option, index) => {
+            {shuffledOptions.map((option, index) => {
               let buttonClass = "";
               if (clickedAnswer) {
                 if (option === clickedAnswer.option) {
@@ -193,6 +213,7 @@ const QuizApp = () => {
                     )
                   }
                   className={buttonClass}
+                  disabled={clickedAnswer !== null}
                 >
                   {option}
                 </button>
