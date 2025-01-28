@@ -181,7 +181,7 @@ body {
   }
 
   .quiz-image {
-    max-width: 60%;
+    max-width:100%;
   }
 
   .timer {
@@ -206,7 +206,7 @@ body {
   }
 
   .quiz-image {
-    max-width: 70%;
+    max-width: 100%;
   }
 
   .timer {
@@ -241,7 +241,7 @@ body {
   }
 
   .quiz-image {
-    max-width: 60%;
+    max-width: 100%;
     height: auto;
   }
 
@@ -272,7 +272,7 @@ body {
   }
 
   .quiz-image {
-    max-width: 50%;
+    max-width: 100%;
     height: auto;
   }
 
@@ -331,7 +331,7 @@ body {
   }
 
   .quiz-image {
-    max-width: 45%;
+    max-width: 100%;
   }
 
   .timer {
