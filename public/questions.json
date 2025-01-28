@@ -2,7 +2,7 @@
   "quiz": [
     {
       "id": 1,
-      "question": "What is the real identity of Atreus, revealed later in the game?",
+      "question": "What is the real identity of Atreus, revealed later in the game: God of War?",
       "options": [
         "Loki", 
         "Thor", 
@@ -14,7 +14,7 @@
     {
       "id": 2,
       "question": "From what game is this image?",
-      "image":"/images/QuizImage1.jpg",
+      "image": "/images/QuizImage1.jpg",
       "options": [
         "Starfield", 
         "Cyberpunk 2077", 
@@ -25,29 +25,29 @@
     },
     {
       "id": 3,
-      "question": "What is the name of the herbalist who helps Geralt find Ciri early in the game?",
+      "question": "Which one of these is NOT considered an RPG?",
       "options": [
-        "Keira Metz", 
-        "Dandelion", 
-        "Vesemir",
-        "Tomira"
+        "Fable Anniversary", 
+        "Dishonored", 
+        "Hades",
+        "Deliver Us The Moon"
       ],
-      "answer": "Tomira"
+      "answer": "Deliver Us The Moon"
     },
     {
       "id": 4,
-      "question": "Which magical creatures can the player tame in Hogwarts Legacy?",
+      "question": "Which class do you attend first in: Hogwarts Legacy?",
       "options": [
-        "Thestral", 
-        "Hippogriff", 
-        "Both A and B", 
-        "None of the above"
+        "Defence Against the Dark Arts", 
+        "Charms", 
+        "Potions", 
+        "Herbology"
       ],
-      "answer": "Both A and B"
+      "answer": "Defence Against the Dark Arts"
     },
     {
       "id": 5,
-      "question": "What is the special ability of the protagonist’s magical staff in Black Myth: Wukong?",
+      "question": "What is the special ability of the protagonist’s magical staff in: Black Myth: Wukong?",
       "options": [
         "It can control the weather.", 
         "It can summon mythical beasts.", 
@@ -58,7 +58,7 @@
     },
     {
       "id": 6,
-      "question": "What is Connor's model number?",
+      "question": "What is Connor's model number from: Detroit: Become Human?",
       "options": [
         "RK100", 
         "RK800", 
@@ -69,18 +69,19 @@
     },
     {
       "id": 7,
-      "question": "What is unique about Malenia, Blade of Miquella?",
+      "question": "Who is this?",
+      "image": "/images/QuizImage2.jpg",
       "options": [
-        "She wields the Rune of Death.", 
-        "She is an Empyrean.", 
-        "She is immune to Scarlet Rot.", 
-        "She controls the Elden Beast."
+        "Goro Majima", 
+        "Kazuya Mishima", 
+        "Kazuma Kiryu", 
+        "Jin Kazama"
       ],
-      "answer": "She is an Empyrean."
+      "answer": "Jin Kazama"
     },
     {
       "id": 8,
-      "question": "What cult is responsible for the events in Resident Evil 4?",
+      "question": "What cult is responsible for the events in: Resident Evil 4?",
       "options": [
         "Los Iluminados", 
         "The Hive", 
@@ -91,7 +92,7 @@
     },
     {
       "id": 9,
-      "question": "What is the name of the Doom Slayer's AI companion?",
+      "question": "What is the name of the Doom Slayer's AI companion from: Doom (2016)?",
       "options": [
         "Hayden AI", 
         "Argent Core",
@@ -102,7 +103,7 @@
     },
     {
       "id": 10,
-      "question": "What happens to B.J. Blazkowicz at the start of Wolfenstein: The New Order?",
+      "question": "What happens to B.J. Blazkowicz at the start of: Wolfenstein: The New Order?",
       "options": [
         "He is betrayed by a close ally.", 
         "He infiltrates Deathshead’s fortress successfully.", 
@@ -113,7 +114,41 @@
     },
     {
       "id": 11,
-      "question": "Which of these games features a boss fight with a dragon?",
+      "question": "What is unique about Malenia, Blade of Miquella from: Elden Ring?",
+      "options": [
+        "She wields the Rune of Death.", 
+        "She is an Empyrean.", 
+        "She is immune to Scarlet Rot.", 
+        "She controls the Elden Beast."
+      ],
+      "answer": "She is an Empyrean."
+    },
+    {
+      "id": 12,
+      "question": "Which one is NOT open world?",
+      "options": [
+        "The Elder Scrolls V: Skyrim", 
+        "Undertale", 
+        "Batman: Arkham Knight", 
+        "BIOMUTANT"
+      ],
+      "answer": "Undertale"
+    },
+    {
+      "id": 13,
+      "question": "What game is he from?",
+      "image": "/images/QuizImage3.jpg",
+      "options": [
+        "Lies of P", 
+        "Baldurs Gate 3", 
+        "Lucius", 
+        "Devil May Cry 5"
+      ],
+      "answer": "Lies of P"
+    },
+    {
+      "id": 14,
+      "question": "Which of these features a boss fight with a dragon?",
       "options": [
         "Elden Ring", 
         "Doom (2016)", 
@@ -121,6 +156,18 @@
         "Detroit: Become Human"
       ],
       "answer": "Elden Ring"
+    },
+    {
+      "id": 15,
+      "question": "What game is this from?",
+      "image": "/images/QuizImage4.jpg",
+      "options": [
+        "Cyberpunk 2077", 
+        "Grand Theft Auto V", 
+        "Final Fantasy XV", 
+        "Saints Row (2023)"
+      ],
+      "answer": "Cyberpunk 2077"
     }
   ]
 }

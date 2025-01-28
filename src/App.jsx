@@ -11,6 +11,16 @@ const QuizApp = () => {
   const [quizData, setQuizData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [clickedAnswer, setClickedAnswer] = useState(null);
+  const [shuffledOptions, setShuffledOptions] = useState([]);
+
+  const shuffleArray = (array) => {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  };
 
   useEffect(() => {
     const fetchQuizData = async () => {
@@ -29,6 +39,13 @@ const QuizApp = () => {
   }, []);
 
   useEffect(() => {
+    if (quizData && quizData[currentQuestionIndex]) {
+      const shuffled = shuffleArray(quizData[currentQuestionIndex].options);
+      setShuffledOptions(shuffled);
+    }
+  }, [quizData, currentQuestionIndex]);
+
+  useEffect(() => {
     if (timeLeft > 0 && isQuizStarted && !showScore) {
       const timer = setInterval(() => {
         setTimeLeft((prevTime) => prevTime - 1);
@@ -43,18 +60,7 @@ const QuizApp = () => {
   const handleTimeout = () => {
     const currentQuestion = quizData[currentQuestionIndex];
 
-    // Prevent duplicate entries for the same question
-    if (!userAnswers.some(answer => answer.question === currentQuestion.question)) {
-      const feedback = {
-        question: currentQuestion.question,
-        userAnswer: "None",
-        correctAnswer: currentQuestion.answer,
-        isCorrect: false,
-      };
-
-      setUserAnswers((prevAnswers) => [...prevAnswers, feedback]);
-    }
-
+    setUserAnswers([...userAnswers, feedback]);
     const nextQuestion = currentQuestionIndex + 1;
 
     if (nextQuestion < quizData.length) {
@@ -69,25 +75,21 @@ const QuizApp = () => {
   };
 
   const handleAnswerOptionClick = (isCorrect, option) => {
-    if (clickedAnswer) return; // Prevent multiple clicks for the same question
+    if (clickedAnswer) return;
 
     setClickedAnswer({ isCorrect, option });
+    
+    const feedback = {
+      question: quizData[currentQuestionIndex].question,
+      userAnswer: option,
+      correctAnswer: quizData[currentQuestionIndex].answer,
+      isCorrect: isCorrect,
+    };
 
-    const currentQuestion = quizData[currentQuestionIndex];
+    setUserAnswers((prevAnswers) => [...prevAnswers, feedback]);
 
-    // Prevent duplicate entries for the same question
-    if (!userAnswers.some(answer => answer.question === currentQuestion.question)) {
-      const feedback = {
-        question: currentQuestion.question,
-        userAnswer: option,
-        correctAnswer: currentQuestion.answer,
-        isCorrect: isCorrect,
-      };
-
-      setUserAnswers((prevAnswers) => [...prevAnswers, feedback]);
-      if (isCorrect) {
-        setScore(score + 1);
-      }
+    if (isCorrect) {
+      setScore((prevScore) => prevScore + 1);
     }
 
     const nextQuestion = currentQuestionIndex + 1;
@@ -124,9 +126,9 @@ const QuizApp = () => {
   };
 
   const getResponseMessage = () => {
-    if (score < 4) return "Play more games, noob😞";
-    if (score >= 4 && score <= 7) return "You are a gamer!🎮";
-    if (score >= 8) return "Touch some grass🌿";
+    if (score < 6) return "Play more games, noob😞";
+    if (score >= 6 && score <= 11) return "You are a gamer!🎮";
+    if (score >= 12) return "Touch some grass🌿";
     return "";
   };
 
@@ -188,7 +190,7 @@ const QuizApp = () => {
             )}
           </div>
           <div className="answer-section">
-            {quizData[currentQuestionIndex].options.map((option, index) => {
+            {shuffledOptions.map((option, index) => {
               let buttonClass = "";
               if (clickedAnswer) {
                 if (option === clickedAnswer.option) {
@@ -206,6 +208,7 @@ const QuizApp = () => {
                     )
                   }
                   className={buttonClass}
+                  disabled={clickedAnswer !== null}
                 >
                   {option}
                 </button>
