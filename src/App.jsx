@@ -59,6 +59,12 @@ const QuizApp = () => {
 
   const handleTimeout = () => {
     const currentQuestion = quizData[currentQuestionIndex];
+    const feedback = {
+      question: currentQuestion.question,
+      userAnswer: "None",
+      correctAnswer: currentQuestion.answer,
+      isCorrect: false,
+    };
 
     setUserAnswers([...userAnswers, feedback]);
     const nextQuestion = currentQuestionIndex + 1;
@@ -93,7 +99,6 @@ const QuizApp = () => {
     }
 
     const nextQuestion = currentQuestionIndex + 1;
-
     if (nextQuestion < quizData.length) {
       setTimeout(() => {
         setCurrentQuestionIndex(nextQuestion);
