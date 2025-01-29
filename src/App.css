@@ -53,10 +53,6 @@ h1, h2, h3 {
   font-size: 24px;  
 }
 
-.question-section {
-  margin: 20px 0;  
-}
-
 .question-count {
   font-size: 20px;  
 }
@@ -136,17 +132,28 @@ body {
 
 .question-image {
   margin: 20px 0;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .quiz-image {
-  width: 100%;
-  max-width: 500px;  
+  max-width: 100%;
   height: auto;
   border-radius: 10px;
-  border: 3px solid #ddd;
+  border: 3px solid #000;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.question-section {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .correct-answer {
@@ -180,10 +187,6 @@ body {
     font-size: 24px;  
   }
 
-  .quiz-image {
-    max-width:100%;
-  }
-
   .timer {
     font-size: 20px;
   }
@@ -203,10 +206,6 @@ body {
     width: 300px;
     padding: 18px;
     font-size: 24px;  
-  }
-
-  .quiz-image {
-    max-width: 100%;
   }
 
   .timer {
@@ -240,11 +239,6 @@ body {
     font-size: 22px;  
   }
 
-  .quiz-image {
-    max-width: 100%;
-    height: auto;
-  }
-
   .timer {
     font-size: 18px;
   }
@@ -271,11 +265,6 @@ body {
     font-size: 18px;  
   }
 
-  .quiz-image {
-    max-width: 100%;
-    height: auto;
-  }
-
   .timer {
     font-size: 16px;
   }
@@ -287,7 +276,7 @@ body {
   }
 
   .home-page button {
-    font-size: 16px;
+    font-size: 20px;
     padding: 8px 15px;
   }
 
@@ -301,10 +290,6 @@ body {
     font-size: 18px;
   }
 
-  .quiz-image {
-    max-width: 100%;
-  }
-
   .timer {
     font-size: 16px;
   }
@@ -312,26 +297,22 @@ body {
 
 @media (max-width: 375px) {
   .home-page h1 {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .home-page button {
-    font-size: 14px;
+    font-size: 20px;
     padding: 6px 12px;
   }
 
   .question-text {
-    font-size: 14px;
+    font-size: 20px;
   }
 
   .answer-section button {
     width: 210px;  
-    padding: 12px;
+    padding: 8px;
     font-size: 16px;
-  }
-
-  .quiz-image {
-    max-width: 100%;
   }
 
   .timer {

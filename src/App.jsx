@@ -84,7 +84,7 @@ const QuizApp = () => {
     if (clickedAnswer) return;
 
     setClickedAnswer({ isCorrect, option });
-    
+
     const feedback = {
       question: quizData[currentQuestionIndex].question,
       userAnswer: option,
